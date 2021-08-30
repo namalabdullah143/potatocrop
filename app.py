@@ -65,12 +65,12 @@ def predict():
 
 def predict(img):
     img = np.expand_dims(img,axis=0)
-    result = model.predict_classes(img)
-    #ind = np.argmax(result)
-    disease_name = classes[result]
+    result = model.predict(img)
+    ind = np.argmax(result)
+    disease_name = classes[ind]
     print("prediction from model: "+disease_name)
     return disease_name
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000, debug=False,threaded=False)
-    #app.run()
+    #app.run(host="0.0.0.0", port=5000, debug=False,threaded=False)
+    app.run()
